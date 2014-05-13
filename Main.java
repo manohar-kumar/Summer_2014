@@ -1,8 +1,9 @@
 import java.util.*;
 import java.awt.*;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.event.*;
+import javax.swing.*;
 import java.lang.*;
+import java.io.Console;
 
  class FindRank extends JPanel {
    ArrayList<Integer> v= new ArrayList<Integer>();
@@ -23,19 +24,26 @@ import java.lang.*;
    
    public void paintComponent(Graphics g) {
    super.paintComponent(g);
+   
+   
    printRect(v,g,200);
    ArrayList<Integer> v1 = new ArrayList<Integer>();
    ArrayList<Integer> v2 = new ArrayList<Integer>();
    Color c1 = new Color(0,0,255);
    Color c2 = new Color(0,255,0);
+   Console c = System.console();
+         
+   
       for(int i=0;i<v.size();i++){
+        String readString = c.readLine();
+         if(readString.equals("")){
          if(v.get(i) < am){
             v1.add(v.get(i));
             g.setColor(c1);
             g.fillRect(45+30*i,100,30,30);
             g.setColor(c2);
             g.drawString(Integer.toString(v.get(i)),60+30*i,100+15);
-         
+            
          }
          else if (v.get(i) > am){
             v2.add(v.get(i));
@@ -43,8 +51,10 @@ import java.lang.*;
             g.fillRect(45+30*i,300,30,30);
             g.setColor(c1);
             g.drawString(Integer.toString(v.get(i)),60+30*i,300+15);
-            
+         
          }
+      }
+
       }
       
    }
@@ -142,12 +152,19 @@ public class Main extends JPanel {
      v.add(7);v.add(8);v.add(3);
       JFrame k = new JFrame();
       k.setSize(400, 400);
-      k.add(new FindRank(v,1,4));
+      JButton okButton = new JButton("Next");
+      FindRank h = new FindRank(v,1,4);
+
+      h.add(okButton);
+
+      k.add(h);
+
       k.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       k.setVisible(true);
 
 
       JFrame f = new JFrame();
+
       f.setSize(400, 400);
       f.add(new ApproxMedian(v));
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
