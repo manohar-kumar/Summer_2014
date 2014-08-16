@@ -1,10 +1,7 @@
-import java.applet.*;
-import java.awt.*;
+public class Hello{
 
-public class Hello extends Applet
-{
-   public void paint (Graphics g)
-   {
-      g.drawString ("Hello World", 25, 50);
+   public static void main(String[] args) {
+      System.out.println("kjklja");
    }
+
 }

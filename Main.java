@@ -24,8 +24,6 @@ import java.io.Console;
    
    public void paintComponent(Graphics g) {
    super.paintComponent(g);
-   
-   
    printRect(v,g,200);
    ArrayList<Integer> v1 = new ArrayList<Integer>();
    ArrayList<Integer> v2 = new ArrayList<Integer>();
@@ -36,7 +34,6 @@ import java.io.Console;
    
       for(int i=0;i<v.size();i++){
         String readString = c.readLine();
-         if(readString.equals("")){
          if(v.get(i) < am){
             v1.add(v.get(i));
             g.setColor(c1);
@@ -53,7 +50,6 @@ import java.io.Console;
             g.drawString(Integer.toString(v.get(i)),60+30*i,300+15);
          
          }
-      }
 
       }
       
