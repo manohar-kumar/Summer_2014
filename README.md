@@ -1,4 +1,4 @@
-Summer_2014
+Algorithms animation
 ===========
 
-Project under Prof. Sundar Vishwanathan
+Animation of algorithms for quick learning
